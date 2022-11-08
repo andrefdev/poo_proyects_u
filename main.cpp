@@ -2,7 +2,6 @@
 #include<fstream>
 #include<windows.h>
 #include<string.h>
-
 #include"validaciones.hpp"
 
 using namespace std;
@@ -78,11 +77,35 @@ int main()
 		{
 			ingreso = true;
 		}
+		//ingreso atencion
+		else if (user == usuarioAtencion.usuario && password == usuarioAtencion.contrasena)
+		{
+			ingreso = true;
+		}
+		//ingreso cocina
+		else if (user == usuarioCocina.usuario && password == usuarioCocina.contrasena)
+		{
+			ingreso = true;
+		}
+		//ingreso caja
+		else if (user == usuarioCaja.usuario && password == usuarioCaja.contrasena)
+		{
+			ingreso = true;
+		}
 		else
 		{
-			cout << "\n \t\t El usuario o contraseña son incorrectos, le quedan " << 3-contadorIntentos << " intentos \n";
 			contadorIntentos++;
+			if(contadorIntentos == 3)
+			{
+				cout<<"\n\t No pudo ingresar. ADIOS.";
+				exit(10);
+			}
+			cout << "\n \t\t El usuario o contraseña son incorrectos, le quedan " << 3-contadorIntentos << " intentos \n";
+			
 		}
+		
+		
+		
 	}
 	
 	cout << "1) Mesas" << endl;
@@ -121,47 +144,6 @@ int main()
 		}
 		break;
 	}
-
-	/*if (user == usuarioAdmin.usuario && password == usuarioAdmin.contrasena)
-	{
-		cout << "1) Mensas" << endl;
-		cout << "2) Historial de pedidos" << endl;
-		cout << "3) Ingresos totales" << endl;
-		cout << "4) Cambiar contrasena" << endl;
-
-		cin >> num;
-
-		switch (num)
-		{
-		case 1:
-			cout << "Mesas"; 
-			break;
-		case 2:
-			cout << "Historial de pedidos";
-			break;
-		case 3:
-			cout << "Ingresos totales";
-			break;
-		case 4:
-			cout << "Cambiar contrasena "<<endl;
-			bool val = false;
-			cout << endl << "Para cambiar su contrasena dijite 1: "; cin >> val;
-			if (val == true)
-			{
-				cout << "Dijite el nuevo usuario: ";
-				cin >> usuarioAdmin.usuario;
-				cout << "Dijite la nueva contrasena: ";
-				cin >> usuarioAdmin.contrasena;
-                cin.ignore();
-				ofstream f("datos.bin", ios::binary | ios::out);
-
-				f.write((char*)&usuarioAdmin, sizeof(loggin));
-				f.close();
-			}
-			break;
-		}
-	}
-	*/
 
 return 0;
 }
