@@ -1,9 +1,10 @@
-#include<iostream>
-#include<fstream>
-#include<windows.h>
-#include<string.h>
-#include"SimonCodigo.h"
-#include"Andre.h"
+#include <iostream>
+#include <fstream>
+#include <windows.h>
+#include <string.h>
+#include "SimonCodigo.h"
+#include "Andre.h"
+#include "Angel.h"
 
 using namespace std;
 

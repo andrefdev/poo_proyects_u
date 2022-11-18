@@ -104,7 +104,7 @@ void boleta()
 			contFideos += y[i];
 			precioFideos = contFideos * fideos;
 		}
-		if(x[i] == "Arroz con chaufa")
+		if(x[i] == "Arroz chaufa")
 		{
 			contArrozChaufa += y[i];
 			precioArrozChaufa = contArrozChaufa * arrozChaufa;
@@ -157,11 +157,11 @@ void guardarBoleta()
 	
 	if (a.is_open())
 	{	
-		cout<<"\t\t\t\t\t\t\t //////////          Boleta de pago            \\\\\\\\\\"<<endl;
-		cout<<"\t\t\t\t\t\t\t      RESTAURANTE:  EKATERESTAURANTE"<<endl;
-		cout<<"\t\t\t\t\t\t\t De: KOGITA, SAMSGUN S8, FORTINAITI Y ARCANGEL"<<endl;
-		cout<<"\t\t\t\t\t\t\t Venta de quinua tuaques twist, riky tok, caramanducas"<<endl;
-		cout<<"\t\t\t\t\t\t\t Ruc: 10234769730 ------------------------------"<<endl;
+		a<<"\t\t\t\t\t\t\t //////////          Boleta de pago            \\\\\\\\\\"<<endl;
+		a<<"\t\t\t\t\t\t\t      RESTAURANTE:  EKATERESTAURANTE"<<endl;
+		a<<"\t\t\t\t\t\t\t De: KOGITA, SAMSGUN S8, FORTINAITI Y ARCANGEL"<<endl;
+		a<<"\t\t\t\t\t\t\t Venta de quinua tuaques twist, riky tok, caramanducas"<<endl;
+		a<<"\t\t\t\t\t\t\t Ruc: 10234769730 ------------------------------"<<endl;
 		
 		time_t hora;
 		time(&hora);

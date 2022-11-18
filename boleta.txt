@@ -1,10 +1,10 @@
-La cantidad de emolientes pedidos es: 21---> $105
-La cantidad de chichas pedidas es: 18---> $108
-La cuenta seria de: 213
-Impuestos: 38.34
-El monto final es de: 251.34
-La cantidad de emolientes pedidos es: 21---> $105
-La cantidad de chichas pedidas es: 18---> $108
-La cuenta seria de: 213
-Impuestos: 38.34
-El monto final es de: 251.34
+							 //////////          Boleta de pago            \\\\\
+							      RESTAURANTE:  EKATERESTAURANTE
+							 De: KOGITA, SAMSGUN S8, FORTINAITI Y ARCANGEL
+							 Venta de quinua tuaques twist, riky tok, caramanducas
+							 Ruc: 10234769730 ------------------------------
+La cantidad de emolientes pedidos es: 6---> $30
+La cantidad de arroz chaufa pedidos es: 4---> $92
+La cuenta seria de: 122
+Impuestos: 21.96
+El monto final es de: 143.96
