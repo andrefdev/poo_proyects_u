@@ -1,0 +1,10 @@
+Emoliente,1
+Chicha,1
+Chicha,16
+Emoliente,8
+Arroz chaufa,1
+Emoliente,4
+Chicha,1
+Arroz chaufa,4
+Emoliente,8
+Arroz chaufa,7
