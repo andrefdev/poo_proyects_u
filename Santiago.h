@@ -9,6 +9,8 @@
 #include <vector>
 #include <iomanip>
 #include <ctime>
+#include "SimonCodigo.h"
+#include "SimonFunciones.h"
 
 using namespace std;
 
@@ -48,6 +50,23 @@ int contDietaPollo = 0;
 int contTorta = 0;
 int contKeke = 0;
 
+i = 0;
+int j = 0;
+int tiempoMax = 0;
+int pedido[30] = { };
+int mesa;
+int contadorEmoliente = 0;
+int contadorChicha = 0;
+int contadorEnsalada = 0;
+int contadorPapa = 0;	
+int contadorFideos = 0;
+int contadorArrozChaufa = 0;
+int contadorArrozPollo = 0;
+int contadorDietaPollo = 0;
+int contadorTorta = 0;
+int contadorKeke = 0;
+
+void escribirBoletaMesa(int pedido[], string platos[], int i, int contador, int& contadorEmoliente, int& contadorChicha, int& contadorEnsalada, int& contadorPapa, int& contadorFideos, int& contadorArrozChaufa, int& contadorArrozPollo, int& contadorDietaPollo, int& contadorTorta, int& contadorKeke);
 
 void boleta()
 {
@@ -218,7 +237,66 @@ void guardarBoleta()
 		a.close();
 	}
 	else cout<<"No se puede abrir el archivo";
+	system("cls");
+	escribirBoletaMesa(pedido, platos, i, contador, contadorEmoliente, contadorChicha, contadorEnsalada, contadorPapa, contadorFideos, contadorArrozChaufa, contadorArrozPollo, contadorDietaPollo, contadorTorta, contadorKeke);
 }
+
+
+void escribirBoletaMesa(int pedido[], string platos[], int i, int contador, int& contadorEmoliente, int& contadorChicha, int& contadorEnsalada, int& contadorPapa, int& contadorFideos, int& contadorArrozChaufa, int& contadorArrozPollo, int& contadorDietaPollo, int& contadorTorta, int& contadorKeke)
+{
+cout<<"DESC		CANT	PRECIO UNIT 	TOTAL";
+	for(int i = 0; i < contador; i++)
+	{
+		if(pedido[i] == 1)
+		{
+			cout<<platos[i] <<" "<<contadorEmoliente << " "<< emoliente <<" "<<emoliente * contadorEmoliente <<endl;
+			
+		}
+		if(pedido[i] == 2)
+		{
+			cout<<platos[i] <<" "<<contadorChicha << " "<< chicha <<" "<<chicha * contadorChicha <<endl;
+		}
+		if(pedido[i] == 3)
+		{
+			cout<<platos[i] <<" "<<contadorEnsalada<< " "<< ensalada <<" "<<ensalada * contadorEnsalada <<endl;
+			
+		}
+		if(pedido[i] == 4)
+		{
+			cout<<platos[i] <<" "<<contadorPapa<< " "<< papa <<" "<<papa * contadorPapa <<endl;
+			
+		}
+		if(pedido[i] == 5)
+		{
+			cout<<platos[i] <<" "<<contadorFideos<< " "<< fideos <<" "<<fideos * contadorFideos <<endl;
+		}
+		if(pedido[i] == 6)
+		{
+			cout<<platos[i] <<" "<<contadorArrozChaufa<< " "<< arrozChaufa <<" "<< arrozChaufa * contadorArrozChaufa <<endl;
+			
+		}
+		if(pedido[i] == 7)
+		{
+			cout<<platos[i] <<" "<<contadorArrozPollo<<endl<< " "<< arrozPollo <<" "<<arrozPollo * contadorArrozPollo <<endl;
+			
+		}
+		if(pedido[i] == 8)
+		{
+			cout<<platos[i] <<" "<<contadorDietaPollo<< " "<< dietaPollo <<" "<<dietaPollo* contadorDietaPollo<<endl;
+			
+		}
+		if(pedido[i] == 9)
+		{
+			cout<<platos[i] <<" "<<contadorTorta<< " "<< torta <<" "<<torta * contadorTorta <<endl;
+			
+		}
+		if(pedido[i] == 10)
+		{
+			cout<<platos[i] <<" "<<contadorKeke<< " "<< keke <<" "<<keke * contadorKeke <<endl;
+		}
+	}
+}
+
 void boletaPrincipal()
 {
 	boleta();

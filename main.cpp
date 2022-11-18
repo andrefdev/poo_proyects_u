@@ -5,6 +5,7 @@
 #include "SimonCodigo.h"
 #include "Andre.h"
 #include "Angel.h"
+#include "Santiago.h"
 
 using namespace std;
 

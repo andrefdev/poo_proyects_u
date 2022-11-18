@@ -8,3 +8,13 @@ La cantidad de arroz chaufa pedidos es: 4---> $92
 La cuenta seria de: 122
 Impuestos: 21.96
 El monto final es de: 143.96
+							 //////////          Boleta de pago            \\\\\
+							      RESTAURANTE:  EKATERESTAURANTE
+							 De: KOGITA, SAMSGUN S8, FORTINAITI Y ARCANGEL
+							 Venta de quinua tuaques twist, riky tok, caramanducas
+							 Ruc: 10234769730 ------------------------------
+La cantidad de emolientes pedidos es: 6---> $30
+La cantidad de arroz chaufa pedidos es: 4---> $92
+La cuenta seria de: 122
+Impuestos: 21.96
+El monto final es de: 143.96

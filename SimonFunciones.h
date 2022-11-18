@@ -242,7 +242,7 @@ void asignarMesas(int mesas[], int mesasOcupadas[], int cantidad, int &mesaSelec
 	//ingresa datos
 	cout<<"Ingrese la cantidad de comensales: ";
 	cin>>cantidad;
-	while(cantidad < 1 || cantidad > 7)
+	while(cantidad < 1 || cantidad > 6)
 	{
 		cout<<"Ingrese una cantidad valida de usuarios: ";
 		cin>>cantidad;
@@ -278,5 +278,6 @@ void asignarMesas(int mesas[], int mesasOcupadas[], int cantidad, int &mesaSelec
 	system("pause");
 	system("CLS");
 }
+
 
 #endif
