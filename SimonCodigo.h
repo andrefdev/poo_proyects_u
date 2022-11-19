@@ -44,7 +44,22 @@ void atencion()
 		int contadorTorta = 0;
 		int contadorKeke = 0;
 		
+		string bebida1 = "Emoliente";
+		string bebida2 = "Chicha";
+		string entradas1 = "Ensalada fresca";
+		string entradas2 = "Papa a la huancaina";
+		string segundo1 = "Fideos verdes";
+		string segundo2 = "Arroz chaufa";
+		string segundo3 = "Arroz con pollo";
+		string segundo4 = "Dieta de pollo";
+		string postre1 = "Torta de chocolate";
+		string postre2 = "Keke de zanahoria";
 		
+		cout<<"Menu:"<<endl;
+		cout<<"Bebidas:" <<endl <<"1) "<<bebida1 <<endl <<"2) "<<bebida2 <<endl;
+		cout<<"Entradas:" <<endl <<"3) "<<entradas1 <<endl <<"4) "<<entradas2<<endl;
+		cout<<"Segundo:" <<endl <<"5) "<<segundo1 <<endl <<"6) "<<segundo2<<endl <<"7) "<<segundo3 <<endl <<"8) "<<segundo4 <<endl;
+		cout<<"Postre:" <<endl <<"9) "<<postre1 <<endl <<"10) "<<postre2<<endl;
 		
 		cout<<"Ingrese el numero correspondiente de cada plato o bebida que desee ordenar: "<<endl;
 		
