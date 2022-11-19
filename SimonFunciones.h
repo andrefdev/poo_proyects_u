@@ -1,6 +1,7 @@
 #ifndef TOMAPEDIDOS_H_INCLUDED
 #define TOMAPEDIDOS_H_INCLUDED
 #include <iostream>
+#include "Santiago.h"
 using namespace std; 
 void leerPedido(int pedido[], bool val, int& i)
 {

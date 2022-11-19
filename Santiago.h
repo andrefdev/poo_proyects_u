@@ -50,7 +50,7 @@ int contDietaPollo = 0;
 int contTorta = 0;
 int contKeke = 0;
 
-i = 0;
+int i = 0;
 int j = 0;
 int tiempoMax = 0;
 int pedido[30] = { };
@@ -91,7 +91,7 @@ void boleta()
 		x.push_back(aux);
 		
 		getline(archivo, aux, '\n');
-		istringstream (aux) >> numero;
+		istringstream(aux) >> numero;
 		y.push_back(numero);
 		i++;
 	}
@@ -171,58 +171,138 @@ void boleta()
 
 void guardarBoleta()
 {
+	ifstream archivo;		
+	archivo.open("archivoIT.txt", ios::in);
+	
+	if(archivo.fail())
+	{
+		cout<<"No se pudo abrir el archivo";
+		exit(1);
+	}
+	vector <string> x;	
+	vector <int> y;
+	string aux;
+	int i = 0;
+	int numero;
+	
+	//itero linea por linea y guardo en vectores los platos y cantidad
+	while(!archivo.eof())
+	{
+		getline(archivo, aux, ',');
+		x.push_back(aux);
+		
+		getline(archivo, aux, '\n');
+		istringstream(aux) >> numero;
+		y.push_back(numero);
+		i++;
+	}
+	
+	for(int i = 0; i < x.size(); i++)
+	{
+		if(x[i] == "Emoliente")
+		{
+			contEmoliente += y[i];
+			precioEmoliente = contEmoliente * emoliente;
+		}
+		if(x[i] == "Chicha")
+		{
+			contChicha += y[i];
+			precioChicha = contChicha * chicha;
+		}
+		if(x[i] == "Ensalada fresca")
+		{
+			contEnsalada += y[i];
+			precioEnsalada = contEnsalada * ensalada;
+		}
+		if(x[i] == "Papa a la huancaina")
+		{
+			contPapa += y[i];
+			precioPapa = contPapa * papa;
+		}
+		if(x[i] == "Fideos verdes")
+		{
+			contFideos += y[i];
+			precioFideos = contFideos * fideos;
+		}
+		if(x[i] == "Arroz chaufa")
+		{
+			contArrozChaufa += y[i];
+			precioArrozChaufa = contArrozChaufa * arrozChaufa;
+		}
+		if(x[i] == "Arroz con pollo")
+		{
+			contArrozPollo += y[i];
+			precioArrozPollo = contArrozPollo * arrozPollo;
+		}
+		if(x[i] == "Dieta")
+		{
+			contDietaPollo += y[i];
+			precioDietaPollo = contDietaPollo * dietaPollo;	
+		}
+		if(x[i] == "Torta de chocolate")
+		{
+			contTorta += y[i];
+			precioTorta = contTorta * torta;
+		}
+		if(x[i] == "Keke de zanahoria")
+		{
+			contKeke += y[i];
+			precioKeke = contKeke * keke;
+		}
+	}
+	
 	ofstream a;
 	a.open("boleta.txt", ios::out | ios::app);
 	
 	if (a.is_open())
 	{	
-		a<<"\t\t\t\t\t\t\t //////////          Boleta de pago            \\\\\\\\\\"<<endl;
-		a<<"\t\t\t\t\t\t\t      RESTAURANTE:  EKATERESTAURANTE"<<endl;
-		a<<"\t\t\t\t\t\t\t De: KOGITA, SAMSGUN S8, FORTINAITI Y ARCANGEL"<<endl;
-		a<<"\t\t\t\t\t\t\t Venta de quinua tuaques twist, riky tok, caramanducas"<<endl;
-		a<<"\t\t\t\t\t\t\t Ruc: 10234769730 ------------------------------"<<endl;
+		a<<"//////////          Boleta de pago            \\\\\\\\\\"<<endl;
+		a<<"RESTAURANTE:  EKATERESTAURANTE"<<endl;
+		a<<"De: KOGITA, SAMSGUN S8, FORTINAITI Y ARCANGEL"<<endl;
+		a<<"Venta de quinua tuaques twist, riky tok, caramanducas"<<endl;
+		a<<"Ruc: 10234769730 ------------------------------"<<endl;
 		
 		time_t hora;
 		time(&hora);
 		cout<<asctime(localtime(&hora));
 		
-		if(contEmoliente!=0)
+		if(contEmoliente>0)
 		{
 			a<<"La cantidad de emolientes pedidos es: "<<contEmoliente<<"---> $"<<precioEmoliente<<endl;
 		}
-		if(contChicha!=0)
+		if(contChicha>0)
 		{
 			a<<"La cantidad de chichas pedidas es: "<<contChicha<<"---> $"<<precioChicha<<endl;
 		}
-		if(contEnsalada!=0)
+		if(contEnsalada>0)
 		{
 			a<<"La cantidad de ensaladas pedidas es: "<<contEnsalada<<"---> $"<<precioEnsalada<<endl;
 		}
-		if(contPapa!=0)
+		if(contPapa>0)
 		{
 			a<<"La cantidad de papas pedidas es: "<<contPapa<<"---> $"<<precioPapa<<endl;
 		}
-		if(contFideos!=0)
+		if(contFideos>0)
 		{
 			a<<"La cantidad de fideos pedidos es: "<<contFideos<<"---> $"<<precioFideos<<endl;
 		}
-		if(contArrozChaufa!=0)
+		if(contArrozChaufa>0)
 		{
 			a<<"La cantidad de arroz chaufa pedidos es: "<<contArrozChaufa<<"---> $"<<precioArrozChaufa<<endl;
 		}
-		if(contArrozPollo!=0)
+		if(contArrozPollo>0)
 		{
 			a<<"La cantidad de arroz con pollo pedidos es: "<<contArrozPollo<<"---> $"<<precioArrozPollo<<endl;
 		}
-		if(contDietaPollo!=0)
+		if(contDietaPollo>0)
 		{
 			a<<"La cantidad de dietas de pollo pedidas es: "<<contDietaPollo<<"---> $"<<precioDietaPollo<<endl;
 		}
-		if(contTorta!=0)
+		if(contTorta>0)
 		{
 			a<<"La cantidad de tortas pedidas es: "<<contTorta<<"---> $"<<precioTorta<<endl;
 		}
-		if(contKeke!=0)
+		if(contKeke>0)
 		{
 			a<<"La cantidad de kekes pedidos es: "<<contKeke<<"---> $"<<precioKeke<<endl;
 		}
@@ -233,75 +313,20 @@ void guardarBoleta()
 		
 		a<<"La cuenta seria de: "<<montoBase<<endl;
 		a<<"Impuestos: "<<igv<<endl;
-		a<<"El monto final es de: "<<totalPago<<endl;;
+		a<<"El monto final es de: "<<totalPago<<endl;
+		a<<endl;
 		a.close();
 	}
 	else cout<<"No se puede abrir el archivo";
 	system("cls");
-	escribirBoletaMesa(pedido, platos, i, contador, contadorEmoliente, contadorChicha, contadorEnsalada, contadorPapa, contadorFideos, contadorArrozChaufa, contadorArrozPollo, contadorDietaPollo, contadorTorta, contadorKeke);
 }
 
 
-void escribirBoletaMesa(int pedido[], string platos[], int i, int contador, int& contadorEmoliente, int& contadorChicha, int& contadorEnsalada, int& contadorPapa, int& contadorFideos, int& contadorArrozChaufa, int& contadorArrozPollo, int& contadorDietaPollo, int& contadorTorta, int& contadorKeke)
-{
-cout<<"DESC		CANT	PRECIO UNIT 	TOTAL";
-	for(int i = 0; i < contador; i++)
-	{
-		if(pedido[i] == 1)
-		{
-			cout<<platos[i] <<" "<<contadorEmoliente << " "<< emoliente <<" "<<emoliente * contadorEmoliente <<endl;
-			
-		}
-		if(pedido[i] == 2)
-		{
-			cout<<platos[i] <<" "<<contadorChicha << " "<< chicha <<" "<<chicha * contadorChicha <<endl;
-		}
-		if(pedido[i] == 3)
-		{
-			cout<<platos[i] <<" "<<contadorEnsalada<< " "<< ensalada <<" "<<ensalada * contadorEnsalada <<endl;
-			
-		}
-		if(pedido[i] == 4)
-		{
-			cout<<platos[i] <<" "<<contadorPapa<< " "<< papa <<" "<<papa * contadorPapa <<endl;
-			
-		}
-		if(pedido[i] == 5)
-		{
-			cout<<platos[i] <<" "<<contadorFideos<< " "<< fideos <<" "<<fideos * contadorFideos <<endl;
-		}
-		if(pedido[i] == 6)
-		{
-			cout<<platos[i] <<" "<<contadorArrozChaufa<< " "<< arrozChaufa <<" "<< arrozChaufa * contadorArrozChaufa <<endl;
-			
-		}
-		if(pedido[i] == 7)
-		{
-			cout<<platos[i] <<" "<<contadorArrozPollo<<endl<< " "<< arrozPollo <<" "<<arrozPollo * contadorArrozPollo <<endl;
-			
-		}
-		if(pedido[i] == 8)
-		{
-			cout<<platos[i] <<" "<<contadorDietaPollo<< " "<< dietaPollo <<" "<<dietaPollo* contadorDietaPollo<<endl;
-			
-		}
-		if(pedido[i] == 9)
-		{
-			cout<<platos[i] <<" "<<contadorTorta<< " "<< torta <<" "<<torta * contadorTorta <<endl;
-			
-		}
-		if(pedido[i] == 10)
-		{
-			cout<<platos[i] <<" "<<contadorKeke<< " "<< keke <<" "<<keke * contadorKeke <<endl;
-		}
-	}
-}
+
 
 void boletaPrincipal()
 {
 	boleta();
-	system("pause");
-	guardarBoleta();
 }
 
 #endif
